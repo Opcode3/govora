@@ -24,6 +24,7 @@ const Input: React.FC<InputProps> = ({
   const handleFocus = () => setIsFocused(true);
   const handleBlur = () => setIsFocused(value.length > 0); // Check if there's value to keep label in place
 
+  console.log(isFocused);
   return (
     <div className="relative w-full mt-5">
       <input

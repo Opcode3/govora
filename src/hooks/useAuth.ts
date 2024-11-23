@@ -24,7 +24,7 @@
 
 
 import { useMutation } from '@tanstack/react-query';
-import { registerUser, loginUser } from '../services/authService';
+import {  loginUser } from '../services/authService';
 
 // Define types for user data and authentication response
 interface UserData {
@@ -32,10 +32,10 @@ interface UserData {
   password: string;
 }
 
-interface AuthResponse {
-  message?: string; // For registration success response
-  token: string;   // For login success response
-}
+// interface AuthResponse {
+//   message?: string; // For registration success response
+//   token: string;   // For login success response
+// }
 
 // Registration Mutation Hook
 // export const useRegister = () => {

@@ -1,16 +1,13 @@
 "use client";
 import React from "react";
 import {
-  AlertCircle,
   Bell,
   Briefcase,
   Contact,
   LayoutGrid,
-  LucideAirplay,
   Podcast,
   Users,
 } from "lucide-react";
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -56,7 +53,6 @@ export default function Aside() {
     },
   ];
 
-  console.log(pathname);
   return (
     <aside className=" bg-gray-800 h-screen">
       <div className="pt-6 px-6">

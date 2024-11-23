@@ -1,5 +1,5 @@
 "use client";
-import { CheckCircle, CircleAlertIcon, CircleX, Trash } from "lucide-react";
+import { CheckCircle, CircleX, Trash } from "lucide-react";
 import React, { useState } from "react";
 
 interface Notification {

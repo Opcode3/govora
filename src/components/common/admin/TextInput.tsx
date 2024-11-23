@@ -13,7 +13,13 @@ export default function TextInput({
   return (
     <div className="">
       <label htmlFor={label}>{label}</label>
-      <input type="text" name={label} id={label} placeholder={placeholder} />
+      <input
+        type="text"
+        value={text}
+        name={label}
+        id={label}
+        placeholder={placeholder}
+      />
     </div>
   );
 }

@@ -1,4 +1,3 @@
-import CircleLoader from "@/components/common/circleLoader";
 import Image from "next/image";
 
 export default function Home() {

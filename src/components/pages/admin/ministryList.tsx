@@ -53,6 +53,8 @@ const Ministries: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [editMinistry, setEditMinistry] = useState<Ministry | null>(null);
 
+  console.log(editMinistry);
+
   const [searchQuery, setSearchQuery] = useState(""); // For search input
   const [filterDate, setFilterDate] = useState(""); // For filter dropdown (created date)
 
@@ -71,6 +73,7 @@ const Ministries: React.FC = () => {
     return matchesSearchQuery && matchesDateFilter;
   });
 
+  console.log(isEditing);
   // Handle Edit Ministry
   const handleEdit = (id: number) => {
     const ministryToEdit = ministries.find((ministry) => ministry.id === id);
@@ -86,29 +89,29 @@ const Ministries: React.FC = () => {
   };
 
   // Handle Add New Ministry
-  const handleAddMinistry = (name: string, description: string) => {
-    const newMinistry = {
-      id: ministries.length + 1, // Increment the id for dummy data
-      name,
-      description,
-      createdAt: new Date().toLocaleDateString(),
-    };
-    setMinistries([...ministries, newMinistry]);
-  };
+  // const handleAddMinistry = (name: string, description: string) => {
+  //   const newMinistry = {
+  //     id: ministries.length + 1, // Increment the id for dummy data
+  //     name,
+  //     description,
+  //     createdAt: new Date().toLocaleDateString(),
+  //   };
+  //   setMinistries([...ministries, newMinistry]);
+  // };
 
   // Handle Update Existing Ministry
-  const handleUpdateMinistry = (name: string, description: string) => {
-    if (editMinistry) {
-      const updatedMinistries = ministries.map((ministry) =>
-        ministry.id === editMinistry.id
-          ? { ...ministry, name, description }
-          : ministry
-      );
-      setMinistries(updatedMinistries);
-      setIsEditing(false);
-      setEditMinistry(null);
-    }
-  };
+  // const handleUpdateMinistry = (name: string, description: string) => {
+  //   if (editMinistry) {
+  //     const updatedMinistries = ministries.map((ministry) =>
+  //       ministry.id === editMinistry.id
+  //         ? { ...ministry, name, description }
+  //         : ministry
+  //     );
+  //     setMinistries(updatedMinistries);
+  //     setIsEditing(false);
+  //     setEditMinistry(null);
+  //   }
+  // };
 
   return (
     <div className="  mt-16">
@@ -153,69 +156,6 @@ const Ministries: React.FC = () => {
         onEdit={handleEdit}
         onDelete={handleDelete}
       />
-
-      {/* Add/Edit Ministry Form */}
-      {isEditing && (
-        <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold mb-4">
-            {editMinistry ? "Edit Ministry" : "Add Ministry"}
-          </h2>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              const form = e.target as HTMLFormElement;
-              const name = form.name.value;
-              const description = form.description.value;
-              if (editMinistry) {
-                handleUpdateMinistry(name, description);
-              } else {
-                handleAddMinistry(name, description);
-              }
-              form.reset();
-            }}
-          >
-            <div className="mb-4">
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-600"
-              >
-                Ministry Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                defaultValue={editMinistry ? editMinistry.name : ""}
-                className="mt-1 p-3 w-full border border-gray-300 rounded-lg"
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="description"
-                className="block text-sm font-medium text-gray-600"
-              >
-                Description
-              </label>
-              <textarea
-                id="description"
-                name="description"
-                defaultValue={editMinistry ? editMinistry.description : ""}
-                className="mt-1 p-3 w-full border border-gray-300 rounded-lg"
-                required
-              ></textarea>
-            </div>
-            <div className="flex justify-end">
-              <button
-                type="submit"
-                className="bg-green-500 text-white py-2 px-4 rounded-lg"
-              >
-                {editMinistry ? "Update Ministry" : "Add Ministry"}
-              </button>
-            </div>
-          </form>
-        </div>
-      )}
     </div>
   );
 };

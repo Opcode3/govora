@@ -1,5 +1,4 @@
 import BreadCrumb from "@/components/common/admin/BreadCrumb";
-import MinistryTable from "@/components/pages/admin/ministries";
 import Ministries from "@/components/pages/admin/ministryList";
 import { Metadata } from "next";
 import React from "react";
