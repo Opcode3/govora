@@ -15,7 +15,7 @@ export default function LoginLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="grid grid-cols-[350px_auto]">
+    <div className="grid grid-cols-[300px_auto]">
       <Aside />
       <div className="p-10">{children}</div>
     </div>

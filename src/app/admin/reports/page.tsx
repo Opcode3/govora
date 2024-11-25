@@ -1,6 +1,7 @@
 import BreadCrumb from "@/components/common/admin/BreadCrumb";
 import React from "react";
 import { Metadata } from "next";
+import ReportTabs from "@/components/pages/admin/reportTab";
 
 export const metadata: Metadata = {
   title: "Reports - Govora Platform",
@@ -11,6 +12,7 @@ export default function page() {
   return (
     <div className="">
       <BreadCrumb title="Reports" />
+      <ReportTabs />
     </div>
   );
 }

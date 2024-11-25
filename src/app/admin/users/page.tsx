@@ -1,6 +1,7 @@
 import BreadCrumb from "@/components/common/admin/BreadCrumb";
 import React from "react";
 import { Metadata } from "next";
+import UserManagement from "@/components/pages/admin/userManagement";
 
 export const metadata: Metadata = {
   title: "Users - Govora Platform",
@@ -10,6 +11,7 @@ export default function page() {
   return (
     <div className="">
       <BreadCrumb title="Users" />
+      <UserManagement />
     </div>
   );
 }

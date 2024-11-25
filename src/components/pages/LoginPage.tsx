@@ -37,8 +37,8 @@ export default function LoginPage({ type_of_user }: LoginPageProps) {
 
   return (
     <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
-      <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">
-        Admin Login
+      <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6 uppercase">
+        {type_of_user} Login
       </h2>
 
       {error && (
@@ -90,12 +90,14 @@ export default function LoginPage({ type_of_user }: LoginPageProps) {
         </button>
       </form>
 
-      <p className="mt-4 text-center text-sm text-gray-600">
-        Don&apos;t have an account?{" "}
-        <a href="#" className="text-blue-600 hover:underline">
-          Sign up
-        </a>
-      </p>
+      {type_of_user == "citizen" && (
+        <p className="mt-4 text-center text-sm text-gray-600">
+          Don&apos;t have an account?{" "}
+          <a href="#" className="text-blue-600 hover:underline">
+            Sign up
+          </a>
+        </p>
+      )}
     </div>
   );
 }

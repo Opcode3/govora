@@ -3,15 +3,30 @@ import localFont from "next/font/local";
 import "./globals.css";
 import MainLayout from "@/components/layout/MainLayout";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const RoobertPRO = localFont({
+  src: [
+    {
+      path: "./fonts/RoobertPRO-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./fonts/RoobertPRO-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/RoobertPRO-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/RoobertPRO-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  display: "swap", // Optional: CSS display property for font loading
 });
 
 export const metadata: Metadata = {
@@ -29,9 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-green-50`}
-      >
+      <body className={`${RoobertPRO.className} antialiased bg-green-50`}>
         <MainLayout>{children}</MainLayout>
       </body>
     </html>

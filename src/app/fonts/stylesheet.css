@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'Roobert PRO';
+    src: url('RoobertPRO-Regular.eot');
+    src: local('Roobert PRO Regular'), local('RoobertPRO-Regular'),
+        url('RoobertPRO-Regular.eot?#iefix') format('embedded-opentype'),
+        url('RoobertPRO-Regular.woff2') format('woff2'),
+        url('RoobertPRO-Regular.woff') format('woff'),
+        url('RoobertPRO-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roobert PRO';
+    src: url('RoobertPRO-Bold.eot');
+    src: local('Roobert PRO Bold'), local('RoobertPRO-Bold'),
+        url('RoobertPRO-Bold.eot?#iefix') format('embedded-opentype'),
+        url('RoobertPRO-Bold.woff2') format('woff2'),
+        url('RoobertPRO-Bold.woff') format('woff'),
+        url('RoobertPRO-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roobert PRO';
+    src: url('RoobertPRO-Light.eot');
+    src: local('Roobert PRO Light'), local('RoobertPRO-Light'),
+        url('RoobertPRO-Light.eot?#iefix') format('embedded-opentype'),
+        url('RoobertPRO-Light.woff2') format('woff2'),
+        url('RoobertPRO-Light.woff') format('woff'),
+        url('RoobertPRO-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roobert PRO';
+    src: url('RoobertPRO-Medium.eot');
+    src: local('Roobert PRO Medium'), local('RoobertPRO-Medium'),
+        url('RoobertPRO-Medium.eot?#iefix') format('embedded-opentype'),
+        url('RoobertPRO-Medium.woff2') format('woff2'),
+        url('RoobertPRO-Medium.woff') format('woff'),
+        url('RoobertPRO-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
