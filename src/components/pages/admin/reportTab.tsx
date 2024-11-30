@@ -1,152 +1,132 @@
 "use client";
+import { getReports } from "@/services/reportService";
+import { PostResponseInterface } from "@/types/blog";
+import { useQuery } from "@tanstack/react-query";
+import { ExternalLink, FilePenLine, PlusCircleIcon } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 const ReportTabs = () => {
-  const [activeTab, setActiveTab] = useState("contentReports");
+  const [activeTab, setActiveTab] = useState<
+    "blog" | "analytics" | "event" | "political"
+  >("blog");
 
-  const renderTable = () => {
-    switch (activeTab) {
-      case "contentReports":
-        return (
-          <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="py-2 px-4 text-left">Blog Title</th>
-                <th className="py-2 px-4 text-left">Author</th>
-                <th className="py-2 px-4 text-left">Views</th>
-                <th className="py-2 px-4 text-left">Published Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-t">
-                <td className="py-2 px-4">Understanding AI</td>
-                <td className="py-2 px-4">John Doe</td>
-                <td className="py-2 px-4">1500</td>
-                <td className="py-2 px-4">2024-01-05</td>
-              </tr>
-              {/* More rows */}
-            </tbody>
-          </table>
-        );
-      case "analyticsReports":
-        return (
-          <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="py-2 px-4 text-left">Metric</th>
-                <th className="py-2 px-4 text-left">Value</th>
-                <th className="py-2 px-4 text-left">Trend</th>
-                <th className="py-2 px-4 text-left">Period</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-t">
-                <td className="py-2 px-4">Page Views</td>
-                <td className="py-2 px-4">12000</td>
-                <td className="py-2 px-4">↑</td>
-                <td className="py-2 px-4">Week</td>
-              </tr>
-              {/* More rows */}
-            </tbody>
-          </table>
-        );
-      case "eventReports":
-        return (
-          <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="py-2 px-4 text-left">Event Name</th>
-                <th className="py-2 px-4 text-left">Location</th>
-                <th className="py-2 px-4 text-left">Attendees</th>
-                <th className="py-2 px-4 text-left">Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-t">
-                <td className="py-2 px-4">AI Conference 2024</td>
-                <td className="py-2 px-4">New York</td>
-                <td className="py-2 px-4">500</td>
-                <td className="py-2 px-4">2024-02-10</td>
-              </tr>
-              {/* More rows */}
-            </tbody>
-          </table>
-        );
-      case "politicalReports":
-        return (
-          <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="py-2 px-4 text-left">Politician Name</th>
-                <th className="py-2 px-4 text-left">Party</th>
-                <th className="py-2 px-4 text-left">Region</th>
-                <th className="py-2 px-4 text-left">Approval Rating</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-t">
-                <td className="py-2 px-4">Jane Smith</td>
-                <td className="py-2 px-4">Democratic</td>
-                <td className="py-2 px-4">California</td>
-                <td className="py-2 px-4">85%</td>
-              </tr>
-              {/* More rows */}
-            </tbody>
-          </table>
-        );
-      default:
-        return null;
+  const { isLoading, data } = useQuery({
+    queryKey: ["reports"],
+    queryFn: getReports,
+  });
+
+  const filterSearch = () => {
+    if (data && data.data && Array.isArray(data.data)) {
+      return data.data.filter(
+        (item: PostResponseInterface) =>
+          item.report_type.toLowerCase() == activeTab
+      );
     }
+    return [];
   };
 
   return (
     <div className="container mx-auto px-4 py-8">
+      <div className="flex justify-end items-center mb-8">
+        <Link
+          href={"./reports/new"}
+          className="bg-green-500 text-white py-2 px-4 rounded-lg flex items-center"
+        >
+          <PlusCircleIcon className="mr-2" />
+          Add Report
+        </Link>
+      </div>
       {/* Tab Navigation */}
       <div className="flex space-x-6 mb-6">
         <button
           className={`py-2 px-6 text-sm font-semibold ${
-            activeTab === "contentReports"
+            activeTab === "blog"
               ? "text-blue-500 border-b-2 border-blue-500"
               : "text-gray-500"
           }`}
-          onClick={() => setActiveTab("contentReports")}
+          onClick={() => setActiveTab("blog")}
         >
           Content Reports
         </button>
         <button
           className={`py-2 px-6 text-sm font-semibold ${
-            activeTab === "analyticsReports"
+            activeTab === "analytics"
               ? "text-blue-500 border-b-2 border-blue-500"
               : "text-gray-500"
           }`}
-          onClick={() => setActiveTab("analyticsReports")}
+          onClick={() => setActiveTab("analytics")}
         >
           Analytics Reports
         </button>
         <button
           className={`py-2 px-6 text-sm font-semibold ${
-            activeTab === "eventReports"
+            activeTab === "event"
               ? "text-blue-500 border-b-2 border-blue-500"
               : "text-gray-500"
           }`}
-          onClick={() => setActiveTab("eventReports")}
+          onClick={() => setActiveTab("event")}
         >
           Event Reports
         </button>
         <button
           className={`py-2 px-6 text-sm font-semibold ${
-            activeTab === "politicalReports"
+            activeTab === "political"
               ? "text-blue-500 border-b-2 border-blue-500"
               : "text-gray-500"
           }`}
-          onClick={() => setActiveTab("politicalReports")}
+          onClick={() => setActiveTab("political")}
         >
           Political Reports
         </button>
       </div>
 
       {/* Table */}
-      <div>{renderTable()}</div>
+      <div>
+        <table className="min-w-full bg-white border-collapse border-gray-200 rounded-lg shadow-md">
+          <thead className="bg-gray-200">
+            <tr>
+              <th className="py-4 px-4 text-left">Title</th>
+              <th className="py-4 px-4 text-left">Reporter</th>
+              <th className="py-4 px-4 text-left">Create Date</th>
+              <th className="py-4 px-4 text-left">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data &&
+            data.data &&
+            Array.isArray(data.data) &&
+            data.data.length > 0 ? (
+              filterSearch().map((item: PostResponseInterface, i) => (
+                <tr
+                  key={i}
+                  className={` border-b ${
+                    i % 2 !== 0 ? "bg-gray-100" : "bg-gray-50"
+                  }`}
+                >
+                  <td className="py-4 pl-6">{item.report_title}</td>
+                  <td>{item.report_reporter}</td>
+                  <td>{item.created_at}</td>
+                  <td>
+                    <div className="flex items-center gap-2">
+                      <Link href={""} className="px-2">
+                        <ExternalLink className=" stroke-1 size-5" />
+                      </Link>
+                      <Link href={""} className="px-2">
+                        <FilePenLine className=" stroke-1 size-5" />
+                      </Link>
+                    </div>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr className="">
+                <td colSpan={3}>No Report record was found!</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

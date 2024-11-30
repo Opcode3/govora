@@ -11,7 +11,7 @@ export default function BreadCrumb({ title }: BreadCrumbType) {
       <h1 className=" text-5xl font-bold ">{title}</h1>
       <div className="">
         <Link
-          href={""}
+          href={"/logout"}
           className="flex items-center gap-2 text-xl bg-red-600 text-white py-3 px-4 rounded-md font-medium"
         >
           <PowerOff className=" stroke-white" />

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Aside from "./aside";
+import AdminGuardLayout from "@/components/layout/AdminGuard";
 
 export const metadata: Metadata = {
   title: "Login - Govora Platform",
@@ -15,9 +16,13 @@ export default function LoginLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="grid grid-cols-[300px_auto]">
-      <Aside />
-      <div className="p-10">{children}</div>
-    </div>
+    <AdminGuardLayout>
+      <div className="grid grid-cols-[300px_auto] h-screen">
+        <Aside />
+        <div className="p-10 h-screen overflow-y-auto overflow-hidden">
+          {children}
+        </div>
+      </div>
+    </AdminGuardLayout>
   );
 }

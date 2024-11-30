@@ -49,9 +49,9 @@ const NewsCard: React.FC<NewsCardProps> = ({
             <Image
               src={reporterImage}
               alt={reporterName}
-              width={46}
-              height={46}
-              className="rounded-2xl"
+              width={30}
+              height={30}
+              className="rounded-3xl"
             />
             <p className=" text-gray-700 flex flex-col text-sm">
               <strong className=" font-medium text-lg">{reporterName}</strong>

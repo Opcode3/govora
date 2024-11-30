@@ -2,29 +2,30 @@ import { UserData } from "@/types/auth";
 import apiClient from "./apiClient";
 
 
-
-// export const registerUser = async (userData: UserData) => {
-//   const response = await apiClient.post('/auth/register', userData);
-//   return response.data;
-// };
-
-// export const loginUser = async (userData: UserData) => {
-//   const response = await apiClient.post('/auth/login', userData);
-//   return response.data;
-// };
-
+interface LoginResponse{
+  name: string, token: string, email: string
+}
 
 interface AuthResponse {
-    message?: string;
-    token?: string;
+    message: string;
+    data: LoginResponse;
+    status_code: number
   }
   
-  export const registerUser = async (userData: UserData): Promise<AuthResponse> => {
-    const response = await apiClient.post<AuthResponse>('/api/auth/register', userData);
+  export const registerAdmin = async (userData: UserData & {type: string}): Promise<AuthResponse> => {
+    const response = await apiClient.post<AuthResponse>('admin/auth.php', userData, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
     return response.data;
   };
   
-  export const loginUser = async (userData: UserData): Promise<AuthResponse> => {
-    const response = await apiClient.post<AuthResponse>('/api/auth/login', userData);
+  export const loginAdmin = async (userData: UserData & {type: string}): Promise<AuthResponse> => {
+    const response = await apiClient.post<AuthResponse>('admin/auth.php', userData, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
     return response.data;
   };

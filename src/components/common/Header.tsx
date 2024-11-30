@@ -18,7 +18,7 @@ export default function Header() {
     },
     {
       name: "Projects",
-      url: "",
+      url: "/projects",
     },
     {
       name: "Blog",

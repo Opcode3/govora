@@ -31,7 +31,7 @@ export default function Aside() {
       name: "Reports",
       url: "/reports",
       icon: <Podcast className=" stroke-1 size-8" />,
-      tags: ["/admin/reports"],
+      tags: ["/admin/reports", "/admin/reports/new"],
     },
     {
       name: "Users",

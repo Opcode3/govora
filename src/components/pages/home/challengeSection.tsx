@@ -8,7 +8,7 @@ const ChallengeSection = () => {
       <div className="max-w-[1200px] mx-auto px-4">
         {/* Section Title */}
         <div className="text-center mb-12">
-          <h2 className="text-5xl font-bold text-green-50">
+          <h2 className="text-3xl font-bold text-green-50">
             Engage and Win Daily!
           </h2>
           <p className="text-green-50 mt-4 text-lg">

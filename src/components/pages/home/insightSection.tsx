@@ -1,45 +1,45 @@
 const insights = [
   {
     id: 1,
-    title: "Economic Performance",
+    title: "Economic Diversification and Industrial Growth",
     description:
-      "Analyzing the impact of recent fiscal policies on households.",
-    image: "/images/img.jpg",
+      "Nigeria has long been dependent on oil exports, but there has been a growing push for economic diversification. This trend examines the country's efforts to reduce reliance on oil by developing other sectors, such as agriculture, manufacturing, technology, and services. Key indicators might include growth in non-oil GDP, government policies supporting diversification, and investment in infrastructure. This trend is crucial for long-term economic sustainability and job creation.",
+    image: "/images/insight/7.jpg",
   },
   {
     id: 2,
-    title: "Infrastructure Development",
+    title: "Digital Transformation and Technology Adoption ",
     description:
-      "Assessing ongoing projects and identifying regions needing urgent improvements.",
-    image: "/images/img.jpg",
+      "With Nigeria's young population and growing internet penetration, the digital economy is expanding rapidly. This trend looks at the rise of tech startups, mobile banking, e-commerce, and digital services like fintech, edtech, and health tech. ",
+    image: "/images/insight/6.jpg",
   },
   {
     id: 3,
-    title: "Healthcare Access",
+    title: "Youth Unemployment and Skills Development",
     description:
-      "Evaluating healthcare coverage gaps and the effects of recent initiatives.",
-    image: "/images/img.jpg",
+      "Nigeria faces a significant challenge in terms of high youth unemployment, despite having one of the youngest populations in the world. This trend examines the causes of unemployment among Nigerian youth, such as lack of skills, insufficient job opportunities, and limited access to vocational training.",
+    image: "/images/insight/5.jpg",
   },
   {
     id: 4,
-    title: "Education Trends",
+    title: "Urbanization and Infrastructure Development",
     description:
-      "Tracking literacy rates and evaluating recent educational policies.",
-    image: "/images/img.jpg",
+      "Nigeria is experiencing rapid urbanization, with millions of people migrating from rural areas to cities in search of better opportunities. This trend examines the pressures on urban infrastructure—housing, transportation, sanitation, and healthcare.",
+    image: "/images/insight/3.jpg",
   },
   {
     id: 5,
-    title: "Employment Data",
+    title: "Political Instability and Governance Reform",
     description:
-      "Analyzing unemployment trends and the impact of job creation programs.",
-    image: "/images/img.jpg",
+      "Nigeria has faced periods of political instability, with challenges like corruption, security concerns, and governance inefficiencies. This trend looks at the impact of political reforms, electoral processes, anti-corruption measures, and security issues (e.g., insurgency in the North, banditry, and ethnic conflicts) on national development. ",
+    image: "/images/insight/2.avif",
   },
   {
     id: 6,
-    title: "Public Sentiment",
+    title: "Climate Change and Environmental Sustainability",
     description:
-      "Understanding citizen feedback and regional satisfaction with governance.",
-    image: "/images/img.jpg",
+      "Nigeria is experiencing significant environmental challenges due to climate change, including desertification in the North, flooding in coastal areas, and deforestation. This trend analyzes how climate change is affecting agriculture, food security, water resources, and livelihoods in Nigeria.",
+    image: "/images/insight/1.jpg",
   },
 ];
 
@@ -70,7 +70,9 @@ const InsightsSection = () => {
                 <h3 className="text-xl font-semibold text-gray-800">
                   {insight.title}
                 </h3>
-                <p className="text-gray-600 mt-2">{insight.description}</p>
+                <p className="line-clamp-4 text-gray-600 mt-2">
+                  {insight.description}
+                </p>
               </div>
             </div>
           ))}

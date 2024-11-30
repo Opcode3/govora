@@ -13,28 +13,31 @@ export default function SpotlightNewsSlider() {
       description:
         "Govora has officially launched a new platform to improve public service delivery.",
       link: "#",
-      image: "/news/news_1.png",
+      image: "/news/x.jpg",
     },
     {
-      title: "New Policy on Public Health",
+      title:
+        "Lagos State Taskforce Sacks Two Officers Caught Stealing Phones During Drug Raid",
       description:
-        "The government introduces a new policy focusing on improving public health in rural areas.",
+        "The Lagos State Taskforce has dismissed two of its officers, Fatai Yusuf (42) and Hammed Garuba (38), for theft during a recent raid on a hotel in Gowon Estate, Ipaja of the state.",
       link: "#",
-      image: "/news/news_2.jpg",
+      image: "/news/9.jpg",
     },
     {
-      title: "Education Reforms Announced",
+      title:
+        "Resident Recounts How Lack Of Ballot Papers, Violence Disrupted Ogun Local Govt Election, Suppressed Voters",
       description:
-        "The education minister announces a series of new reforms aimed at enhancing primary education.",
+        "A resident of Agbero Market Polling Unit in Ward 10 in the Remo North local government area of Ogun State has described how lack of election materials and violence disrupted the state's recently concluded local council elections.",
       link: "#",
-      image: "/news/news_3.webp",
+      image: "/news/10.jpg",
     },
     {
-      title: "Environmental Protection Act Signed",
+      title:
+        "French President Macron Claims Tinubu Is About To Transform Nigeria Like He Did In Lagos",
       description:
         "A new environmental protection act has been signed to address climate change concerns.",
       link: "#",
-      image: "/news/news_4.jpg",
+      image: "/news/7.jpeg",
     },
   ];
 
@@ -69,7 +72,9 @@ export default function SpotlightNewsSlider() {
                 <h3 className="text-2xl font-medium group-hover:underline text-gray-700">
                   {news.title}
                 </h3>
-                <p className="text-gray-700 text-lg">{news.description}</p>
+                <p className="text-gray-700 text-lg line-clamp-2">
+                  {news.description}
+                </p>
               </Link>
             </SwiperSlide>
           ))}
