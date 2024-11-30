@@ -13,19 +13,14 @@ export default function ImageUploadComponent({
 }: UploadImageFieldType) {
   const [isUploading, setIsUploading] = React.useState<boolean>(false);
 
-  const [file, setFile] = useState<File | null>(null);
-  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [textImageUrl, setTextImageUrl] = useState<string>("");
 
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
   const handleCancel = async () => {
-    setErrorMessage(null);
-    setFile(null);
-    setPreviewUrl(null);
     setIsUploading(false);
     setModal(false);
   };
+
+  console.log(isUploading);
 
   return (
     <div className="fixed z-10 top-0 left-0 bg-black bg-opacity-45 flex justify-center pt-[100px] pb-6 w-full h-screen overflow-y-auto">
@@ -48,10 +43,6 @@ export default function ImageUploadComponent({
                   if (textImageUrl.trim().length > 10) {
                     setImageUrl(textImageUrl);
                     setModal(false);
-                  } else {
-                    setErrorMessage(
-                      "Invalid Image Url. Please enter a valid https link."
-                    );
                   }
                 }}
                 className="hover:bg-blue-600 bg-blue-500 text-sm text-gray-100 py-2 px-3 rounded gap-2"

@@ -23,14 +23,14 @@
 //   };
 
 
-import { useMutation } from '@tanstack/react-query';
-import {  loginUser } from '../services/authService';
+// import { useMutation } from '@tanstack/react-query';
+// import {  loginAdmin } from '../services/authService';
 
-// Define types for user data and authentication response
-interface UserData {
-  username: string;
-  password: string;
-}
+// // Define types for user data and authentication response
+// interface UserData {
+//   username: string;
+//   password: string;
+// }
 
 // interface AuthResponse {
 //   message?: string; // For registration success response
@@ -51,15 +51,15 @@ interface UserData {
 //   };
 
 
-export const useLogin = () => {
-    return useMutation({
-        mutationFn: async ({_payload}: {_payload: UserData}) => loginUser(_payload)
-    });
-  };
+// export const useLogin = () => {
+//     return useMutation({
+//         mutationFn: async ({_payload}: {_payload: UserData}) => loginAdmin(_payload)
+//     });
+//   };
 
-export const useRegister = () => {
-    return useMutation({ mutationFn: async ({userData} :{userData: UserData}) => loginUser(userData)});
-};
+// export const useRegister = () => {
+//     return useMutation({ mutationFn: async ({userData} :{userData: UserData}) => loginUser(userData)});
+// };
 
 
 // export const useRegister = () => {

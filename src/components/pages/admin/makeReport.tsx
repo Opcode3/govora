@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import { toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import ImageUploadComponent from "../richeditor/ImageUploadComponent";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { LoaderCircleIcon } from "lucide-react";
 import ImageUploadComponent from "@/components/common/ImageUpload";
@@ -32,8 +32,6 @@ export default function MakeReportPage() {
     React.useState<boolean>(false);
   const [isSubmittingPost, setIsSubmittingPost] =
     React.useState<boolean>(false);
-
-  const router = useRouter();
 
   const publishHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -121,7 +119,9 @@ export default function MakeReportPage() {
             value={title}
             required
             onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
-              desc.length < 151 ? setTitle(e.target.value) : "";
+              if (desc.length < 151) {
+                setTitle(e.target.value);
+              }
             }}
             className="bg-[#F4F4F4] rounded-[3px] w-full py-3 px-4 outline-none border border-[#F4F4F4] focus:border-[#e4e4e4]"
             rows={2}
@@ -141,7 +141,9 @@ export default function MakeReportPage() {
             value={desc}
             required
             onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
-              desc.length < 151 ? setDesc(e.target.value) : "";
+              if (desc.length < 151) {
+                setDesc(e.target.value);
+              }
             }}
             className="bg-[#F4F4F4] rounded-[3px] w-full py-3 px-4 outline-none border border-[#F4F4F4] focus:border-[#e4e4e4]"
             rows={3}

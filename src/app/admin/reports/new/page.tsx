@@ -1,7 +1,6 @@
 import BreadCrumb from "@/components/common/admin/BreadCrumb";
 import React from "react";
 import { Metadata } from "next";
-import ReportTabs from "@/components/pages/admin/reportTab";
 import MakeReportPage from "@/components/pages/admin/makeReport";
 
 export const metadata: Metadata = {

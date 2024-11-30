@@ -11,7 +11,7 @@ const ReportTabs = () => {
     "blog" | "analytics" | "event" | "political"
   >("blog");
 
-  const { isLoading, data } = useQuery({
+  const { data } = useQuery({
     queryKey: ["reports"],
     queryFn: getReports,
   });
